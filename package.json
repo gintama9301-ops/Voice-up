@@ -1,0 +1,8 @@
+{
+  "name": "voiceup-shared-community",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VoiceUp shared petition website with SQLite backend; Node.js 22.13+",
+  "scripts": {"start": "node server.cjs", "check": "node --check server.cjs && node --check assets/app.js && node --check assets/shared-client.js"},
+  "engines": {"node": ">=22.13.0"}
+}

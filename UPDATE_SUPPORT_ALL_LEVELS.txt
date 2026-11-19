@@ -1,0 +1,18 @@
+VoiceUp — Shared Support for District, State and National
+
+What's changed:
+- Registered account support button for all 835 catalogue entries.
+- Displayed total on generated drafts = original SAMPLE baseline + real registered endorsements. For example 4,000 sample supporters + 1 VoiceUp account = 4,001 displayed supporters (only 1 registered endorsement).
+- Public source-linked petition signature counts remain independent and unchanged.
+- Existing account-based support for user-created community petitions is unaffected.
+- Existing National endorsements are migrated automatically and preserved on first startup.
+
+IMPORTANT WHEN UPDATING AN EXISTING LOCAL PROJECT
+1. Stop the Node.js server before replacing files.
+2. Back up and KEEP your current server-data folder. Never replace it with a new empty folder.
+3. Copy the updated files into your existing voice-up-complete folder, overwriting files with the same names.
+4. Open a terminal in the voice-up-complete folder and run: npm.cmd start
+5. Open http://localhost:3000/explore.html, not a local file:/// URL or Live Server.
+6. Sign in with two different accounts to test shared supporter counts.
+
+These are sample, source-linked and community-submitted entries with different provenance. Example supporter baselines and workflow statuses are demonstration figures; added account support is real activity on this particular VoiceUp server, not a verified person count or an official petition filing.

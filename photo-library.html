@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoiceUp — Photo Library</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{font-family:Inter,Arial,sans-serif;color:#173149;background:#f3f7f7}*{box-sizing:border-box}body{margin:0}header{background:#fff;border-bottom:1px solid #dbe6e5;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:17px max(20px,calc((100vw - 1100px)/2))}a{color:#087e70}header a{text-decoration:none;font-weight:700}main{max-width:1100px;margin:auto;padding:30px 18px}h1{font-size:29px;margin:0 0 8px}p{color:#546a76;line-height:1.6}table{width:100%;background:white;border-collapse:collapse;border-radius:12px;overflow:hidden}th,td{text-align:left;padding:13px 12px;border-bottom:1px solid #e0e8e8;font-size:13px}th{background:#e8f4f0;color:#173e3b}.tag{display:inline-block;background:#edf5f4;padding:4px 8px;border-radius:8px;color:#197568}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0 28px}.card{padding:20px;border:1px solid #e0e8e8;border-radius:12px;background:#fff}.card strong{display:block;font-size:27px;margin-top:8px}.desc{background:#fff;border:1px solid #dae5e4;border-radius:12px;padding:22px;margin:20px 0}code{background:#eff4f5;padding:3px 6px;border-radius:4px;overflow-wrap:anywhere}.progress{height:5px;background:#e1e8e7;border-radius:10px;margin-top:8px;overflow:hidden}.progress>div{background:#008f80;height:100%}.muted{color:#657889;font-size:12px}button{border:0;border-radius:6px;background:#008f80;color:white;font-weight:bold;padding:9px 13px;cursor:pointer}@media(max-width:680px){.cards{grid-template-columns:1fr}th,td{font-size:11px;padding:8px}}
+</style>
+<script src="assets/category-photo-config.js" defer></script>
+<script src="assets/issue-cover-library.js" defer></script>
+<script defer>
+document.addEventListener('DOMContentLoaded',()=>{
+ const pictures=window.VOICE_ISSUE_COVERS;
+ document.getElementById('total').textContent=pictures.length;
+ const tbody=document.querySelector('tbody');
+ for(const category of window.VOICE_CATEGORY_PHOTO_CONFIG.categories){
+  const images=pictures.filter(p=>p.category===category.name);
+  const row=tbody.insertRow();
+  row.insertCell().textContent=category.name;
+  row.insertCell().textContent=images.length;
+  const sample=document.createElement('img');
+  sample.src=images[0].local_path; sample.alt=images[0].description;
+  sample.width=120; sample.height=80; sample.style.objectFit='cover';sample.loading='lazy';
+  row.insertCell().append(sample);
+ }
+});
+</script></head><body>
+<header><a href="index.html">◉ voiceup</a><nav><a href="explore.html">Explore petitions</a></nav></header>
+<main><h1>Petition cover library</h1>
+<p><strong id="total"></strong> AI-generated issue illustrations across 19 categories. Every catalogue petition has its own cover. Community petitions display the evidence supplied by their authors.</p>
+<table><thead><tr><th>Category</th><th>Pictures</th><th>Sample cover</th></tr></thead><tbody></tbody></table></main></body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>India State / UT and District Fields</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, -apple-system, Segoe UI, sans-serif; }
+    body { margin: 0; padding: 32px 16px; background: #f4f7fa; color: #172033; }
+    main { width: min(680px, 100%); margin: 0 auto; padding: 28px; border: 1px solid #d9e1ea; border-radius: 18px; background: #fff; box-shadow: 0 12px 32px #17203312; }
+    h1 { margin-top: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
+    p { line-height: 1.55; }
+    label { display: block; margin: 20px 0 8px; font-weight: 650; }
+    select, input { box-sizing: border-box; width: 100%; padding: 12px 14px; border: 1px solid #b7c3d0; border-radius: 10px; background: #fff; color: #172033; font: inherit; }
+    select:focus, input:focus { outline: 3px solid #5da9a21f; border-color: #237b75; }
+    #indiaAdminStatus { min-height: 24px; color: #475569; font-size: .92rem; }
+    #indiaAdminStatus[data-error="true"] { color: #b42318; }
+    footer { margin-top: 26px; border-top: 1px solid #e1e7ed; padding-top: 16px; color: #596579; font-size: .85rem; }
+    a { color: #176d69; }
+    @media (max-width: 480px) { main { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>India location selector</h1>
+    <p>Choose a state or union territory. The district field will suggest districts for that selection; it remains editable so an unlisted district name can still be entered.</p>
+
+    <form>
+      <label for="stateSelect">State / Union Territory</label>
+      <select id="stateSelect" name="state" required>
+        <option value="">Select a state / UT</option>
+      </select>
+
+      <label for="districtInput">District</label>
+      <input id="districtInput" name="district" list="districtSuggestions" autocomplete="off" placeholder="Choose a state first, then type a district" required>
+      <datalist id="districtSuggestions"></datalist>
+      <p id="indiaAdminStatus" aria-live="polite" role="status">Loading administrative directory…</p>
+    </form>
+
+    <footer>
+      Data is sourced from an independent mirror of the Government of India Local Government Directory (LGD). It requires an internet connection and may lag new notifications. Verify official changes at
+      <a href="https://panchayat.gov.in/en/lgd/" target="_blank" rel="noreferrer">the Ministry of Panchayati Raj LGD page</a> or the
+      <a href="https://igod.gov.in/sg/district/states" target="_blank" rel="noreferrer">Integrated Government Online Directory</a>.
+    </footer>
+  </main>
+  <script src="./assets/india-admin-fields.js" defer></script>
+</body>
+</html>
